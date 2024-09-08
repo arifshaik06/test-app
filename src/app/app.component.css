@@ -13,13 +13,14 @@
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    margin-top: 250px;
+    cursor: pointer;
   }
-  
   .btn-primary:hover {
     background-color: #0056b3;
   }
-  
-  .offcanvas {
+  .canvas {
+    width: 95vw;
     background-color: #f8f9fa;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -27,7 +28,7 @@
     padding: 20px;
   }
   
-  .offcanvas-body {
+  .canvas-body {
     padding: 20px;
     text-align: center;
   }
@@ -40,22 +41,10 @@
   }
   
   .progress-bar {
-    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(108, 108, 243);
     transition: width 0.5s ease;
-  }
-  
-  .btn-secondary {
-    background-color: #6c757d;
-    border-color: #6c757d;
-    color: #fff;
-    font-size: 16px;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-secondary:hover {
-    background-color: #5a6268;
   }
   
   @media (max-width: 768px) {
@@ -63,7 +52,89 @@
       width: 100%;
     }
   
-    .offcanvas {
+    .canvas {
       height: 250px;
     }
   }
+
+  .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  
+.toaster-success {
+  position: fixed;
+  bottom: 120px;
+  right: 20px;
+  z-index: 9999;
+  background-color: #4CAF50; 
+  color: white;
+  padding: 10px 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(-10px);
+}
+
+
+.toaster-success.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.toaster-success .icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+
+.toaster-success .close-btn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.toaster-success .close-btn:hover {
+  color: #ddd;
+}
+
+.rotate-icon {
+  transform: rotate(180deg);
+  display: inline-block; 
+  transition: transform 0.3s ease-in-out; 
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  width: 0px; 
+  
+}
+
+.icon-container mat-panel-title {
+  flex-grow: 1;
+}
+
+.icon-container mat-panel-description {
+  flex-grow: 0;
+}
+.prog{
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+  display: flex;
+}
+.prog1{
+  flex-grow: 1;
+}
+mat-expansion-panel{
+  height: 150px;
+}

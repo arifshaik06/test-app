@@ -1,19 +1,37 @@
 <div class="container">
-  <!-- Start Button -->
   <button class="btn btn-primary" (click)="startProcess()">Start</button>
-  
-  <!-- Offcanvas Popup -->
-  <div *ngIf="showPopup" class="offcanvas offcanvas-bottom show" tabindex="-1" style="height: 200px;" [style.display]="offcanvasVisible ? 'block' : 'none'">
-    <div class="offcanvas-body">
-      <!-- Progress Bar -->
-      <div class="progress mb-3">
-        <div class="progress-bar" role="progressbar" [style.width]="progress + '%'" attr.aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100">
-          {{progress}}%
-        </div>
-      </div>
+  <div class="toaster-success" *ngIf="result" id="successToaster">
+    <span class="icon">✔️</span>
+    <span>Success...!
+      <br>
+      Migration applied successfully
+    </span>
 
-      <!-- Toggle Button -->
-      <button class="btn btn-secondary" (click)="togglePopup()">Toggle Offcanvas</button>
-    </div>
+    <button class="close-btn" onclick="closeToaster()">×</button>
+  </div>
+  <div class="prog">
+    <mat-accordion class="prog1">
+      <mat-expansion-panel [(expanded)]="panelOpenState">
+        <mat-expansion-panel-header>
+          <div class="icon-container" [ngClass]="{'rotate-icon': progress === 100}">
+            <mat-panel-title>
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </div>
+        </mat-expansion-panel-header>
+        <div *ngIf="showPopup" class="canvas canvas-bottom show" tabindex="-1" style="height: 200px;"
+          [style.display]="offcanvasVisible ? 'block' : 'none'">
+          <div class="canvas-body">
+            <div class="progress mb-3">
+              <div class="progress-bar" role="progressbar" [style.width]="progress + '%'"
+                attr.aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100">
+                {{progress}}%
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
   </div>
 </div>
